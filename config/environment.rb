@@ -7,7 +7,8 @@ class Nagira < Sinatra::Base
   configure do 
     set :format, :json
     set :show_exceptions, false
-    set :nagios_cfg, "/usr/local/nagios/etc/nagios.cfg"
+    set :nagios_cfg, '/usr/local/nagios/etc/nagios.cfg'
+    set :bind, 'localhost'
   end
 
   if development?
