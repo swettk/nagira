@@ -19,6 +19,15 @@ class Nagira < Sinatra::Base
 
   end
 
+  configure :development, :test do 
+    dir = File.expand_path(File.dirname(__FILE__) + '/../../../test/data/nagios')
+    
+    set :nagios_cfg, "#{dir}/nagios.cfg"
+    set :status_cfg, "#{dir}/status.dat"
+    set :objects_cfg, "#{dir}/objects.cache"
+    set :command_file, "/tmp/nagios.cmd"
+  end
+
   ##
   # Development and test environments use local files located in the
   # development tree: ./test/data.
